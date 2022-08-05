@@ -2,7 +2,7 @@
 
 .inner {
     position: relative;
-    width: 1280px;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
 }
@@ -62,12 +62,14 @@ header {
 
 #homePage {
     position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
 #homePage .homeText {
     position: absolute;
     left: 50%;
-    width: 1280px;
+    width: 90%;
     color: #fff;
     pointer-events: none;
     transform: translateX(-50%);
@@ -79,7 +81,6 @@ header {
 
 #homePage #homeText1 {
     top: 250px;
-    font-size: 2.3rem;
 }
 
 #homePage #homeText1 h2 {
@@ -110,42 +111,81 @@ header {
     background: url('../images/bg-page.png') no-repeat top;
 }
 
-.section {
-    padding: 60px 0;
+#main {
+    overflow: hidden;
+}
+
+#section1 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+#section1 .canvas-area {
+    position: relative;
+    height: 100vh;
+}
+
+#section1 .canvas-area #canvas-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+}
+
+#section1 .canvas-area #scrollCanvas {
+    width: 100%;
+    height: 100%;
 }
 
 #section2 {
     position: relative;
-    height: 502px;
+    width: 100%;
+    height: 100vh;
+    background-color: #95378c;
+}
+
+#section2 .video-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
 }
 
 #section3 {
-    margin: 100px 0;
-    height: 500px;
+    padding: 100px 0;
+    height: 600px;
+    background-color: #000;
 }
 
-.swiper {
+#section3 .swiper {
     height: 100%;
 }
 
-.swiper .swiper-slide {
+#section3 .swiper .swiper-slide {
     width: 100%;
     height: 100%;
     background-color: #fff;
 }
 
-.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+#section3 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
     opacity: 1;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+#section3 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
     bottom: -40px;
 }
-.swiper-pagination-bullet {
+#section3 .swiper-pagination-bullet {
     background-color: #fff;
 }
 
-.swiper-pagination-bullet-active {
+#section3 .swiper-pagination-bullet-active {
     background-color: #d72a85;
 }
 
@@ -156,6 +196,7 @@ header {
     height: 50px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 #section3 .btn-slider::after {display: none;}
@@ -180,15 +221,14 @@ header {
     background-image: url('../images/slider-next.png');
 }
 
-
-
 #section4 {
-    padding: 110px 0;
+    padding: 140px 0;
     text-align: center;
+    background-color: #95378c;
 }
 
 #section4 label {
-    font-size: 2rem;
+    font-size: 2.3rem;
 }
 
 #section4 input {
@@ -216,14 +256,16 @@ header {
 }
 
 #section5 {
-    padding: 110px 0;
+    padding: 120px 0;
+    background-color: #000;
 }
 
 #section5 .sns-list {
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #section5 .sns-list li {
@@ -266,11 +308,22 @@ header {
     background-image: url('../images/sns-icon-6.png');
 }
 
+#section6 {
+    padding: 120px 0;
+    background-color: #95378c;
+}
+
 #section6 .pdf-list {
     display: flex;
     width: 100%;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#section6 .pdf-list li {
+    padding: 20px 0;
+    width: 16%;
+    text-align: center;
 }
 
 footer {
@@ -278,6 +331,7 @@ footer {
     font-size: 2rem;
     line-height: 1.5;
     text-align: center;
+    background-color: #000
 }
 .animate {
     position: sticky;
@@ -343,3 +397,29 @@ footer {
   .txt_blur_hide {
     animation: txt_blur_hide 2s alternate ease-in;
   }
+
+
+@media screen and (max-width:768px) {
+    #homePage #homeText1 {font-size: 1.8rem;}
+
+    #section3 .btn-slider {width: 40px; }
+    #section3 .btn-slider.next {right: 15%;}
+    #section3 .btn-slider.prev {left: 15%;}
+
+    #section4 label, #section4 input {display: block; width: 100%;}
+    #section4 input {margin: 20px 0;}
+
+    #section6 .pdf-list li {width: 50%;}
+}
+
+@media screen and (min-width:769px) and (max-width:1230px) {
+    #section3 .btn-slider {width: 40px; }
+    #section3 .btn-slider.next {right: 7%;}
+    #section3 .btn-slider.prev {left: 7%;}
+    #section6 .pdf-list li {width: 30%;}
+}
+
+@media screen and (min-width:1231px) {
+    .inner, #homePage .homeText {width: 1280px;}
+    #homePage #homeText1 {font-size: 2.3rem;}
+}

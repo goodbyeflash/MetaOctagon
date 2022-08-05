@@ -13,7 +13,8 @@ window.onload = () => {
   loading();
   scrollCanvasAnimation();
   //scrollTextAnimation();
-  document.getElementById('homePage').style.height = `${window.innerHeight}px`;
+  document.getElementById('homePage').style.width = `100vw`;
+  document.getElementById('homePage').style.height = `100vh`;
   document.getElementById('nav').childNodes.forEach((el) => {
     if (el.id) {
       el.onclick = () => {
@@ -124,15 +125,14 @@ function scrollCanvasAnimation() {
 
   const img = new Image();
   img.src = currentFrame(1);
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+
   img.onload = function () {
-    context.drawImage(img, 0, 0);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
   const updateImage = (index) => {
     img.src = currentFrame(index);
-    context.drawImage(img, 0, 0);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
   window.addEventListener('scroll', () => {
@@ -140,12 +140,13 @@ function scrollCanvasAnimation() {
     const scrollTextStyle = document.getElementById('scrollText').style;
     const scrollElements = [scrollCanvasStyle, scrollTextStyle];
     const styleClear = () => {
-      scrollElements.forEach((styleEl) => {
-        styleEl.position = '';
-        styleEl.left = '';
-        styleEl.top = '';
-        styleEl.transform = '';
-      });
+      document.getElementById('canvas-wrap').style.position = 'absolute';
+      // scrollElements.forEach((styleEl) => {
+      //   styleEl.position = '';
+      //   styleEl.left = '';
+      //   styleEl.top = '';
+      //   styleEl.transform = '';
+      // });
     };
     if (html.scrollTop >= window.innerHeight) {
       const scrollTop = html.scrollTop;
@@ -158,12 +159,13 @@ function scrollCanvasAnimation() {
         Math.ceil(scrollFraction * frameCount)
       );
       requestAnimationFrame(() => updateImage(frameIndex + 1));
-      scrollElements.forEach((styleEl) => {
-        styleEl.position = 'fixed';
-        styleEl.left = '50%';
-        styleEl.top = '50%';
-        styleEl.transform = 'translate(-50%, -50%)';
-      });
+      document.getElementById('canvas-wrap').style.position = 'fixed';
+      // scrollElements.forEach((styleEl) => {
+      //   styleEl.position = 'fixed';
+      //   styleEl.left = '50%';
+      //   styleEl.top = '50%';
+      //   styleEl.transform = 'translate(-50%, -50%)';
+      // });
 
       if (
         html.scrollTop >=
@@ -172,10 +174,12 @@ function scrollCanvasAnimation() {
         )
       ) {
         styleClear();
+
         scrollElements.forEach((styleEl) => {
-          styleEl.position = 'absolute';
-          styleEl.top = maxScrollTop + 'px';
+          // styleEl.position = 'absolute';
+          // styleEl.top = maxScrollTop + 'px';
         });
+        document.getElementById('canvas-wrap').style.top = maxScrollTop + 'px'
       }
     } else {
       styleClear();
