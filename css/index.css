@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+* {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+html,
+body {
+    height: 100vh;
+}
+
 .inner {
     position: relative;
     width: 90%;
