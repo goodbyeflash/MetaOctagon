@@ -28,7 +28,7 @@ window.addEventListener('message', function (e) {
   // e.data가 전달받은 메시지
   if (e.data == 'gltfLoading') {
     isGltfLoading = true;
-    homeTextAnimation();
+    homeTextAnimation1();    
   }
 });
 
@@ -239,10 +239,9 @@ function scrollTextAnimation() {
   }
 }
 
-function homeTextAnimation() {
+function homeTextAnimation1() {
   // 첫 번쨰 텍스트 애니메이션 실행
   spanArray1.forEach((spanEl) => {
-    spanEl.style.visibility = 'hidden';
     setTimeout(() => {
       spanEl.style.visibility = 'visible';
       spanEl.classList.remove('txt_blur_hide');
@@ -257,14 +256,41 @@ function homeTextAnimation() {
             spanEl.classList.remove('txt_blur_hide');
             spanEl.style.visibility = 'hidden';
         }
-        
       });
     }, Math.random() * 1000);
   });
 
   setTimeout(() => {
-    homeTextAnimation();
-  }, 20000);
+    homeTextAnimation2();
+  }, 15000);
+
+}
+
+
+function homeTextAnimation2() {
+  // 첫 번쨰 텍스트 애니메이션 실행
+  spanArray2.forEach((spanEl) => {
+    setTimeout(() => {
+      spanEl.style.visibility = 'visible';
+      spanEl.classList.remove('txt_blur_hide');
+      spanEl.classList.add('txt_blur_show');
+      spanEl.addEventListener('animationend', (e) => {        
+        if( e.animationName == "txt_blur_show" ) {
+          setTimeout(() => {
+            spanEl.classList.remove('txt_blur_show');
+            spanEl.classList.add('txt_blur_hide');
+          }, 10000);
+        } else {
+            spanEl.classList.remove('txt_blur_hide');
+            spanEl.style.visibility = 'hidden';
+        }
+      });
+    }, Math.random() * 1000);
+  });
+
+  setTimeout(() => {
+    homeTextAnimation1();
+  }, 15000);
 }
 
 function shuffle(array) {

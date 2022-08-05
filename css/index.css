@@ -69,8 +69,12 @@ header {
     left: 50%;
     width: 1280px;
     color: #fff;
-    /* pointer-events: none; */
+    pointer-events: none;
     transform: translateX(-50%);
+}
+
+#homePage .homeText span {
+    visibility: hidden;
 }
 
 #homePage #homeText1 {
