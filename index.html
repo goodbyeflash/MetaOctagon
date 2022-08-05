@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaOctagon</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        color: red;
+      }
+      html,
+      body {
+        height: 100vh;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <!-- 인트로 페이지-->
+    <div id="introPage" style="background-color: black; height: 100%;">
+      <div style="left : 50%; top:50%; transform: translate(-50%, -50%); position: fixed;">
+        <span style="font-size: 5rem;">META OCTAGON</span>
+        <span id="loading"></span>
+      </div>
+      
+    </div>
+
+    <!-- 메인 페이지-->
+    <div id="mainPage" style="display: none; height: 100%; width: 100%">
+      <!-- 네비게이션 바-->
+      <header>
+        <div class="inner">
+          <ul id="nav">
+            <li id="goHome"><a>HOME</a></li>
+            <li id="goMetaverse"><a>METAVERSE</a></li>
+            <li id="goMetagonz">
+              <a>METAGONZ</a>
+              <div class="menu-bubble">
+                <span>METAROID & NFT</span>
+              </div>
+            </li>
+            <li id="goAbout"><a>ABOUT</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- 홈 페이지-->
+      <div id="homePage">
+        <iframe style="width: 100%; height: 100%; border: none" src="./public/MetaOctagon3DViewer/"></iframe>
+
+        <div id="homeText1" class="homeText">
+          <h2>
+            <span>INTO</span>
+            <span>THE</span>
+            <span>NEW</span>
+            <span>WORLD</span>
+          </h2>
+          <p>
+            <span>In</span>
+            <span>Meta</span>
+            <span>Octagon,</span>
+            <span>Everything</span>
+            <span>Is</span>
+            <span>Possible,</span>
+            <span>Anything</span>
+            <span>Can</span>
+            <span>Happen.</span>
+          </p>
+        </div>
+
+        <div id="homeText2" class="homeText">
+            <p>
+              <span>
+                Imagine a virtual world where you create your avatar, join parties, obtain<br>
+                social connections and even enjoy new high energy experiences that you<br>
+                ave never had in real life through XR.
+              </span><br/>
+              <strong>Get ready for the whole new journey.</strong>
+            </p>
+        </div>
+
+      <!-- ABOUT 페이지-->
+        <div id="aboutPage">
+          <!-- 스크롤 애니메이션 섹션 -->
+          <div id="section1" class="section" style="height: 100vh">
+            <div style="margin-top : -60px">
+              <canvas id="scrollCanvas" style="max-width: 100vw; max-height: 100vh;"></canvas>  
+            </div>
+            
+            <div id="scrollText" style="display: none;" >
+              <div id="textGroup1">
+                <h1 class="animate animate_1">안녕하세요?</h1>
+                <div class="trigger trigger_1"></div>
+              </div>
+
+              <div id="textGroup2">
+                <h1 class="animate animate_2">만나서 반갑습니다!</h1>
+                <div class="trigger trigger_2"></div>
+              </div>
+
+              <div id="textGroup3">
+                <h1 class="animate animate_3">111111111111</h1>
+                <div class="trigger trigger_3"></div>
+              </div>
+
+              <div id="textGroup4">
+                <h1 class="animate animate_4">2222222222</h1>
+                <div class="trigger trigger_4"></div>
+              </div>
+            </div>
+          </div>
+          <!-- 영상 재생 섹션 -->
+          <div id="section2" class="section" style="height: 100vh">
+  <!--          <iframe width="893" height="502" src="https://www.youtube.com/embed/HtESDBJTFkY" title="Metagonz Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+          </div>
+          <!-- 미디어 블로그 기사 섹션 -->
+          <div id="section3" class="section">
+            <div class="inner">
+              <div class="swiper-button-prev btn-slider prev"></div>
+
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">Slide 1</div>
+                  <div class="swiper-slide">Slide 2</div>
+                  <div class="swiper-slide">Slide 3</div>
+                  <div class="swiper-slide">Slide 4</div>
+                  <div class="swiper-slide">Slide 5</div>
+                  <div class="swiper-slide">Slide 6</div>
+                  <div class="swiper-slide">Slide 7</div>
+                  <div class="swiper-slide">Slide 8</div>
+                  <div class="swiper-slide">Slide 9</div>
+                </div>
+              </div>
+
+              <div class="swiper-button-next btn-slider next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <!-- 이메일 전송 섹션 -->
+          <div id="section4" class="section">
+            <div class="inner">
+              <label for="inputMail">stay up to date</label>
+              <input id="inputMail" placeholder="Enter your email" />
+              <button id="send">send</button>
+              <span id="mailMsg"></span>
+            </div>
+          </div>
+
+          <!-- SNS 연결 섹션 -->
+          <div id="section5" class="section">
+            <div class="inner">
+              <ul class="sns-list">
+                <li><a href="" class="icon1">인스타그램</a></li>
+                <li><a href="" class="icon2">유튜브</a></li>
+                <li><a href="" class="icon3">페이스북</a></li>
+                <li><a href="" class="icon4">트위터</a></li>
+                <li><a href="" class="icon5">미디엄</a></li>
+                <li><a href="" class="icon6">디스코드</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- pdf 뷰어 섹션 -->
+          <div id="section6" class="section">
+            <div class="inner">
+              <ul class="pdf-list">
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">Meta Player Inc.</a></li>
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">MOTG Token</a></li>
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">Cookie Declaration</a></li>
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">Privacy Policy</a></li>
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">Terms of Sale</a></li>
+                <li><a href="./public/PdfViewer/index.html?fileName=1" target="_blank">Terms of Use EULA</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <footer>
+            <div class="inner">
+              <p>
+                Meta Octagon® are registered trademarks of Meta Player Inc. © 2022 Meta Player Inc. All rights reserved.<br>
+                All other copyrights and trademarks are the property of their respective owners.
+              </p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        freeMode: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        }
+      });
+    </script>
+  </body>
+</html>
