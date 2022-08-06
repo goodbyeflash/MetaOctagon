@@ -23,6 +23,7 @@ window.onload = () => {
     }
   });
   onSendButton();
+  onLoadingMedium(); 
 };
 
 window.addEventListener('message', function (e) {
@@ -295,6 +296,29 @@ function homeTextAnimation2() {
   setTimeout(() => {
     homeTextAnimation1();
   }, 15000);
+}
+
+function onLoadingMedium() {
+  const swiperWrap = document.getElementsByClassName("swiper-wrapper")[0];
+  $.get('https://api.rss2json.com/v1/api.json', {
+    rss_url: 'https://medium.com/feed/@metaoctagon'
+    }, (res) => {
+    if (res.status == 'ok') {
+      if( res.items.length > 0 ) {
+        res.items.forEach((item,index) => {
+          if( index < 10 ) {
+            const swiperEl = document.createElement("div");
+            swiperEl.classList = "swiper-slide";
+            swiperEl.textContent = item.title;
+            swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
+            swiperEl.addEventListener("click",()=>{
+              window.open(item.link);
+            });
+            swiperWrap.appendChild(swiperEl);
+          }
+        })
+      }      
+    }});
 }
 
 function shuffle(array) {
