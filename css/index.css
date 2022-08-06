@@ -182,7 +182,25 @@ header {
     height: 100%;
 }
 
+#section1 .img {
+    width: 100%;
+    height: 100%;
+}
+
+#section1 .img::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2645px;
+    background: url('../images/bg-section-1.png') no-repeat top center / 100% auto;
+}
+
 #section1 .text-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
 }
 
@@ -275,11 +293,11 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1962px;
+    width: 100%;
     height: 2679px;
     background: url('../images/bg-section-2.png') no-repeat top -195px center / cover;
     transform: translate(-50%, -50%);
-    z-index: 0;
+    z-index: 1;
 }
 
 #section3 {
