@@ -14,10 +14,12 @@
     <!-- 인트로 페이지-->
     <div id="introPage" style="background-color: black; height: 100%;">
       <div style="left : 50%; top:50%; transform: translate(-50%, -50%); position: fixed;">
-        <span style="font-size: 5rem;">META OCTAGON</span>
-        <span id="loading"></span>
+        <p class="page-name">
+          META OCTAGON
+          <span id="loading"></span>
+        </p>
+
       </div>
-      
     </div>
 
     <!-- 메인 페이지-->
@@ -111,27 +113,50 @@
 <!--              </div>-->
 <!--            </div>-->
             <div class="img"><img src="images/bg-section-1.png" alt="" style="position: absolute; width: auto; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%)"></div>
-            <div id="scrollText" style="display: none;" >
-            <div id="textGroup1">
-              <h1 class="animate animate_1">안녕하세요?</h1>
-              <div class="trigger trigger_1"></div>
-            </div>
+            <div class="text-wrap">
+              <div class="inner">
+                <ul>
+                  <li>
+                    <div>
+                      <strong>
+                        META OCTAGON<br>
+                        GALAXY
+                      </strong>
+                      <p>Infinite complex cultural space with 8 categories.</p>
+                    </div>
+                  </li>
 
-            <div id="textGroup2">
-              <h1 class="animate animate_2">만나서 반갑습니다!</h1>
-              <div class="trigger trigger_2"></div>
-            </div>
+                  <li>
+                    <div>
+                      <strong>
+                        HYPER CULTURE<br>
+                        & INFINITY
+                      </strong>
 
-            <div id="textGroup3">
-              <h1 class="animate animate_3">111111111111</h1>
-              <div class="trigger trigger_3"></div>
-            </div>
+                      <p>
+                        We will provide mind blowing surreal hyper energy<br>
+                        entertainment experiences in metaverse.
+                      </p>
+                    </div>
+                  </li>
 
-            <div id="textGroup4">
-              <h1 class="animate animate_4">2222222222</h1>
-              <div class="trigger trigger_4"></div>
+                  <li>
+                    <div>
+                      <strong>
+                        MULTYPLEX &<br>
+                        NETWORKING
+                      </strong>
+
+                      <p>
+                        We will provide Clubbing & Show, Music, Art,<br>
+                        Fashion, Library, Academy, Tour, Game & Sports<br>
+                        space in metaverse.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
           </div>
 
           <div style="position: relative">
@@ -139,19 +164,22 @@
             <div id="section2" class="section">
               <div class="video-area">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HtESDBJTFkY" title="Metagonz Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-bg"></div>
               </div>
             </div>
             <!-- 미디어 블로그 기사 섹션 -->
             <div id="section3" class="section">
               <div class="inner">
-                <div class="swiper-button-prev btn-slider prev"></div>
+                <div class="swiper mySwiper">
+                  <div class="swiper-wrapper">
+                  </div>
+                </div>
 
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-              </div>
-            </div>
+                <div class="swiper-btn-wrap">
+                  <div class="swiper-button-prev btn-slider prev"></div>
+                  <div class="swiper-button-next btn-slider next"></div>
+                </div>
 
-                <div class="swiper-button-next btn-slider next"></div>
                 <div class="swiper-pagination"></div>
               </div>
             </div>
@@ -292,17 +320,22 @@
         },
         pagination: {
           el: ".swiper-pagination",
+          clickable: true,
         },
         breakpoints: {
           320: {
             slidesPerView: 1,
             spaceBetween: 20
           },
-          600: {
+          769: {
             slidesPerView: 2,
             spaceBetween: 20
           },
-          1230: {
+          1231: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          1529: {
             slidesPerView: 4,
             spaceBetween: 30
           }

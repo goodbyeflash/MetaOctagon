@@ -70,6 +70,37 @@ header {
 
 /* [e] header style */
 
+#introPage {
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/loading-page.png') no-repeat center / 100% 100%;
+}
+
+#introPage::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    background: url('../images/loading-oct.png') no-repeat center / 100% 100%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+#introPage .page-name {
+    font-size: 8rem;
+    z-index: 1;
+}
+
+#introPage .page-name #loading {
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 3rem;
+}
+
 #homePage {
     position: relative;
     width: 100vw;
@@ -129,6 +160,7 @@ header {
     position: relative;
     width: 100%;
     height: 1530px;
+    z-index: 1;
 }
 
 #section1 .canvas-area {
@@ -148,6 +180,52 @@ header {
 #section1 .canvas-area #scrollCanvas {
     width: 100%;
     height: 100%;
+}
+
+#section1 .text-wrap {
+    height: 100%;
+}
+
+#section1 .text-wrap ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#section1 .text-wrap ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#section1 .text-wrap ul li {
+    position: relative;
+    width: 100%;
+    height: 15%;
+}
+
+#section1 .text-wrap ul li > div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#section1 .text-wrap ul li:nth-child(odd) > div {
+    left: 0;
+}
+
+#section1 .text-wrap ul li:nth-child(even) > div {
+    right: 0;
+}
+
+#section1 .text-wrap ul li > div strong {
+    font-size: 7rem;
+}
+#section1 .text-wrap ul li > div p {
+    margin-top: 30px;
+    font-size: 3rem;
+    line-height: 1.3;
 }
 
 .bg-area {
@@ -171,6 +249,26 @@ header {
     z-index: 100;
 }
 
+#section2 .video-area .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/youtube-hover.png') no-repeat center / cover;
+}
+
+#section2 .video-area .video-bg::after {
+    content: 'Play';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-size: 4rem;
+    transform: translate(-50%, -50%);
+}
+
 #section2::after {
     content: '';
     display: block;
@@ -185,18 +283,21 @@ header {
 }
 
 #section3 {
-    padding: 230px 0;
-    height: 885px;
+    height: 445px;
 }
 
 #section3 .swiper {
     height: 100%;
+    margin: 0 80px;
 }
 
 #section3 .swiper .swiper-slide {
+    position: relative;
     width: 100%;
     height: 100%;
+    background-repeat: no-repeat;
     background-color: #fff;
+    background-size: 100% 100%;
 }
 
 #section3 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
@@ -210,6 +311,10 @@ header {
     margin-top: 60px;
 }
 
+#section3 .swiper-button-lock, #section3 .swiper-pagination-lock {
+    display: block;
+}
+
 #section3 .swiper-pagination-bullet {
     background-color: #fff;
 }
@@ -218,9 +323,14 @@ header {
     background-color: #d72a85;
 }
 
-#section3 .btn-slider {
+#section .swiper-btn-wrap {
     position: absolute;
     top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+#section3 .btn-slider {
     width: 69px;
     height: 50px;
     background-repeat: no-repeat;
@@ -233,12 +343,10 @@ header {
 #section3 .btn-slider.prev {
     left: 0;
     background-image: url('../images/slider-prev-on.png');
-    transform: translateX(-120%);
 }
 #section3 .btn-slider.next {
     left: auto;
     right: 0;
-    transform: translateX(120%);
     background-image: url('../images/slider-next-on.png');
 }
 #section3 .btn-slider.prev.swiper-button-disabled {
@@ -250,9 +358,30 @@ header {
     background-image: url('../images/slider-next.png');
 }
 
+#section3 .news-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#section3 .news-wrap:hover {
+    background-color: rgba(235, 40, 156, 0.8);
+}
+
+#section3 .news-wrap .news-tit {
+    position: absolute;
+    padding: 0 30px;
+    top: 50%;
+    width: 100%;
+    font-size: 3rem;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
 #section4 {
-    padding: 96px 0 126px;
-    height: 650px;
+    padding: 275px 0 130px;
 }
 
 #section4 h3 {
@@ -275,12 +404,12 @@ header {
     position: absolute;
     display: block;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 #section4 ul li:nth-child(1)::after {
-    width: 82px;
-    height: 93px;
+    width: 90px;
+    height: 102px;
     bottom: 60px;
     right: 2px;
     background-image: url('../images/news-1.png');
@@ -289,14 +418,14 @@ header {
 #section4 ul li:nth-child(2)::after {
     width: 125px;
     height: 275px;
-    bottom: -15px;
-    right: 2px;
+    bottom: -30px;
+    right: 10px;
     background-image: url('../images/news-2.png');
 }
 
 #section4 ul li:nth-child(3)::after {
-    width: 117px;
-    height: 87px;
+    width: 120px;
+    height: 90px;
     right: 0;
     background-image: url('../images/news-3.png');
 }
@@ -311,7 +440,7 @@ header {
 
 #section4 ul li h4 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     vertical-align: bottom;
 }
 
@@ -333,7 +462,6 @@ header {
 #section4 ul li p {
     font-size: 2rem;
     line-height: 1.5;
-    letter-spacing: -1px;
 }
 
 #section5 {
@@ -349,6 +477,15 @@ header {
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
+}
+
+#section5 .form #mailMsg {
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    font-size: 3rem;
+    color: #95378c;
+    transform: translateX(-50%);
 }
 
 #section5 label {
@@ -392,7 +529,7 @@ header {
 }
 
 #section6 .sns-list li {
-    margin: 0 20px;
+    margin: 20px;
 }
 
 #section6 .sns-list li a {
@@ -546,9 +683,10 @@ footer .copy {
 @media screen and (max-width:768px) {
     #homePage #homeText1 {font-size: 1.8rem;}
 
-    #section3 .btn-slider {width: 40px; }
-    #section3 .btn-slider.next {right: 15%;}
-    #section3 .btn-slider.prev {left: 15%;}
+    #section1 .text-wrap ul li > div strong {font-size: 4rem;}
+    #section1 .text-wrap ul li > div p {font-size: 1.8rem;}
+
+    #section2 .video-area {width: 90%;}
 
     #section5 label, #section5 input {display: block; width: 100%;}
     #section5 input {margin: 20px 0;}
@@ -557,13 +695,23 @@ footer .copy {
 }
 
 @media screen and (min-width:769px) and (max-width:1230px) {
-    #section3 .btn-slider {width: 40px; }
-    #section3 .btn-slider.next {right: 7%;}
-    #section3 .btn-slider.prev {left: 7%;}
+    #section1 .text-wrap ul li > div strong {font-size: 6rem;}
+    #section1 .text-wrap ul li > div p {font-size: 3rem;}
+
+    #section2 .video-area {width: 90%;}
+
+    #section5 label, #section5 input {display: block; width: 100%;}
+    #section5 input {margin: 20px 0;}
+
     #section7 .pdf-list li {width: 30%;}
 }
 
 @media screen and (min-width:1231px) {
-    .inner, #homePage .homeText {width: 1280px;}
+    .inner, #homePage .homeText {width: 1230px;}
+    #homePage #homeText1 {font-size: 2.3rem;}
+}
+
+@media screen and (min-width:1528px) {
+    .inner, #homePage .homeText {width: 1528px;}
     #homePage #homeText1 {font-size: 2.3rem;}
 }

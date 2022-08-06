@@ -309,7 +309,7 @@ function onLoadingMedium() {
           if( index < 10 ) {
             const swiperEl = document.createElement("div");
             swiperEl.classList = "swiper-slide";
-            swiperEl.textContent = item.title;
+            swiperEl.innerHTML = '<div class="news-wrap"> <p class="news-tit">'+item.title+'</p> </div>';
             swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
             swiperEl.addEventListener("click",()=>{
               window.open(item.link);
