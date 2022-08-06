@@ -11,7 +11,7 @@ shuffle(spanArray2);
 
 window.onload = () => {
   loading();
-  scrollCanvasAnimation();
+  // scrollCanvasAnimation();
   //scrollTextAnimation();
   document.getElementById('homePage').style.width = `100vw`;
   document.getElementById('homePage').style.height = `100vh`;
@@ -179,7 +179,7 @@ function scrollCanvasAnimation() {
           // styleEl.position = 'absolute';
           // styleEl.top = maxScrollTop + 'px';
         });
-        document.getElementById('canvas-wrap').style.top = maxScrollTop + 'px'
+        // document.getElementById('canvas-wrap').style.top = maxScrollTop + 'px'
       }
     } else {
       styleClear();

@@ -110,7 +110,7 @@ const tick = () => {
 // GLTF
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load(
-  './models/Octafinal.gltf',
+  './models/0803.glb',
   (gltf) => {
     const model = gltf.scene;    
     model.position.y = -18;
