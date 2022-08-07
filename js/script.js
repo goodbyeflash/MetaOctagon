@@ -12,7 +12,7 @@ shuffle(spanArray2);
 window.onload = () => {
   loading();
   // scrollCanvasAnimation();
-  //scrollTextAnimation();
+  scrollTextAnimation();
   document.getElementById('homePage').style.width = `100vw`;
   document.getElementById('homePage').style.height = `100vh`;
   document.getElementById('nav').childNodes.forEach((el) => {
@@ -23,7 +23,7 @@ window.onload = () => {
     }
   });
   onSendButton();
-  onLoadingMedium(); 
+  onLoadingMedium();   
 };
 
 window.addEventListener('message', function (e) {
@@ -67,7 +67,7 @@ function goLink(id) {
   } else if (id == 'goMetagonz') {
     window.open('http://metagonz.io'); // 새창에서 열림
   } else if (id == 'goAbout') {
-    window.scrollTo(0, document.getElementById('aboutPage').offsetTop);
+    window.scrollTo(0, document.getElementsByClassName('bg-area')[0].offsetTop);
   }
 }
 
@@ -191,53 +191,50 @@ function scrollCanvasAnimation() {
 }
 
 function scrollTextAnimation() {
-  document.getElementById('scrollText').style.height = '100%';
-  document.getElementById('scrollText').style.display = 'block';
-
-  let controller = new ScrollMagic.Controller();
-  let animateElem = ['.animate_1', '.animate_2', '.animate_3', '.animate_4'];
-  let triggerElem = ['.trigger_1', '.trigger_2', '.trigger_3', '.trigger_4'];
-
-  for (let i = 0; i < animateElem.length; i++) {
-    let currentAnimateElem = animateElem[i];
-    let currentTriggerElem = triggerElem[i];
-
-    let timeline = new TimelineMax();
-
-    let tween_move = TweenMax.fromTo(
+  var controller = new ScrollMagic.Controller();
+  var animateElem = ["#animate1", "#animate2", "#animate3",];
+  var triggerElem = ["#trigger1", "#trigger2", "#trigger3",];
+  
+  for (var i = 0; i < animateElem.length; i++) {
+    var currentAnimateElem = animateElem[i];
+    var currentTriggerElem = triggerElem[i];
+  
+    var timeline = new TimelineMax();
+  
+    var tween_move = TweenMax.fromTo(
       currentAnimateElem,
       1,
       {
         ease: SlowMo.ease.config(0.7, 0.7, false),
-        y: 50,
+        y: 50
       },
       {
         ease: SlowMo.ease.config(0.7, 0.7, false),
-        y: -50,
+        y: -50
       }
     );
-
-    let tween_opacity = new TimelineMax();
+  
+    var tween_opacity = new TimelineMax();
     tween_opacity
       .to(currentAnimateElem, 0.3, {
         ease: Linear.easeNone,
-        opacity: 1,
+        opacity: 1
       })
       .to(
         currentAnimateElem,
         0.3,
         {
           ease: Linear.easeNone,
-          opacity: 0,
+          opacity: 0
         },
-        '+=0.4'
+        "+=0.4"
       );
-
+  
     timeline.add(tween_move, 0).add(tween_opacity, 0);
-
-    let scene_main = new ScrollMagic.Scene({
+  
+    var scene_main = new ScrollMagic.Scene({
       triggerElement: currentTriggerElem,
-      duration: '900px',
+      duration: "1500px"
     })
       .setTween(timeline)
       .addTo(controller);
@@ -246,7 +243,7 @@ function scrollTextAnimation() {
 
 function homeTextAnimation1() {
   // 첫 번쨰 텍스트 애니메이션 실행
-  spanArray1.forEach((spanEl) => {
+  spanArray1.forEach((spanEl,index) => {
     setTimeout(() => {
       spanEl.style.visibility = 'visible';
       spanEl.classList.remove('txt_blur_hide');
@@ -260,14 +257,17 @@ function homeTextAnimation1() {
         } else {
             spanEl.classList.remove('txt_blur_hide');
             spanEl.style.visibility = 'hidden';
+            if( (spanEl.lnegth-1) == index ){
+              setTimeout(() => {
+                homeTextAnimation2();
+              }, 15000);
+            }
         }
       });
     }, Math.random() * 1000);
   });
 
-  setTimeout(() => {
-    homeTextAnimation2();
-  }, 15000);
+  
 
 }
 
@@ -288,14 +288,16 @@ function homeTextAnimation2() {
         } else {
             spanEl.classList.remove('txt_blur_hide');
             spanEl.style.visibility = 'hidden';
+            if( (spanEl.lnegth-1) == index ){
+              setTimeout(() => {
+                homeTextAnimation1();
+              }, 15000);
+            }
         }
       });
     }, Math.random() * 1000);
   });
 
-  setTimeout(() => {
-    homeTextAnimation1();
-  }, 15000);
 }
 
 function onLoadingMedium() {
@@ -305,12 +307,15 @@ function onLoadingMedium() {
     }, (res) => {
     if (res.status == 'ok') {
       if( res.items.length > 0 ) {
-        res.items.forEach((item,index) => {
-          if( index < 10 ) {
+        res.items.forEach((item,index) => {          
+          if( index < 10 ) {            
             const swiperEl = document.createElement("div");
             swiperEl.classList = "swiper-slide";
             swiperEl.innerHTML = '<div class="news-wrap"> <p class="news-tit">'+item.title+'</p> </div>';
             swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(item.content, 'text/html');                       
+            console.log(doc.body.getElementsByTagName("p")[0].innerText);
             swiperEl.addEventListener("click",()=>{
               window.open(item.link);
             });
