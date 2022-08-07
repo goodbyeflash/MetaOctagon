@@ -23,14 +23,25 @@ window.onload = () => {
     }
   });
   onSendButton();
-  onLoadingMedium();   
+  // onLoadingMedium();
+  // onLoadVideoPlayer();
+
+  document.getElementsByClassName("video-area")[0].onclick = (e) => {
+    document.getElementsByClassName("video-bg")[0].style.visibility = "hidden";
+    let player = window.videoPlayer;
+    player.playVideo();
+    //event.target.playVideo();
+  };
+
+  menuClick();
+  menuClickoff();
 };
 
 window.addEventListener('message', function (e) {
   // e.data가 전달받은 메시지
   if (e.data == 'gltfLoading') {
     isGltfLoading = true;
-    homeTextAnimation1();    
+    homeTextAnimation1();
   }
 });
 
@@ -45,14 +56,16 @@ function loading() {
   let counter = setInterval(() => {
     loadingEl.textContent = `Loading ${startValue}%`;
     if (startValue >= 80) {
-      if (isGltfLoading) {
-        startValue += 1;
-        if (startValue == 100) {
-          clearInterval(counter);
-          document.getElementById('introPage').style.display = 'none';
-          document.getElementById('mainPage').style.display = 'block';
-        }
+      //if (isGltfLoading) {
+      startValue += 1;
+      if (startValue == 100) {
+        clearInterval(counter);
+        document.getElementById('introPage').style.display = 'none';
+        document.getElementById('mainPage').style.display = 'block';
+        //Todo..
+        homeTextAnimation1();
       }
+      //}
     } else {
       startValue += 1;
     }
@@ -78,7 +91,7 @@ function onSendButton() {
   sendButton.onclick = () => {
     mailMsg.innerText = '';
     let regEmail =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
     if (!regEmail.test(inputMail.value)) {
       mailMsg.innerText = "It's not in email format.";
       return;
@@ -111,9 +124,9 @@ function scrollCanvasAnimation() {
 
   const frameCount = 147;
   const currentFrame = (index) =>
-    `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
-      .toString()
-      .padStart(4, '0')}.jpg`;
+      `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
+          .toString()
+          .padStart(4, '0')}.jpg`;
 
   const preloadImages = () => {
     for (let i = 1; i < frameCount; i++) {
@@ -152,12 +165,12 @@ function scrollCanvasAnimation() {
     if (html.scrollTop >= window.innerHeight) {
       const scrollTop = html.scrollTop;
       const maxScrollTop = parseInt(
-        document.getElementById('section1').style.height.replace('px', '')
+          document.getElementById('section1').style.height.replace('px', '')
       );
       const scrollFraction = scrollTop / maxScrollTop;
       const frameIndex = Math.min(
-        frameCount - 1,
-        Math.ceil(scrollFraction * frameCount)
+          frameCount - 1,
+          Math.ceil(scrollFraction * frameCount)
       );
       requestAnimationFrame(() => updateImage(frameIndex + 1));
       document.getElementById('canvas-wrap').style.position = 'fixed';
@@ -169,10 +182,10 @@ function scrollCanvasAnimation() {
       // });
 
       if (
-        html.scrollTop >=
-        parseInt(
-          document.getElementById('section1').style.height.replace('px', '')
-        )
+          html.scrollTop >=
+          parseInt(
+              document.getElementById('section1').style.height.replace('px', '')
+          )
       ) {
         styleClear();
 
@@ -191,108 +204,107 @@ function scrollCanvasAnimation() {
 }
 
 function scrollTextAnimation() {
-  var controller = new ScrollMagic.Controller();
-  var animateElem = ["#animate1", "#animate2", "#animate3",];
-  var triggerElem = ["#trigger1", "#trigger2", "#trigger3",];
-  
-  for (var i = 0; i < animateElem.length; i++) {
-    var currentAnimateElem = animateElem[i];
-    var currentTriggerElem = triggerElem[i];
-  
-    var timeline = new TimelineMax();
-  
-    var tween_move = TweenMax.fromTo(
-      currentAnimateElem,
-      1,
-      {
-        ease: SlowMo.ease.config(0.7, 0.7, false),
-        y: 50
-      },
-      {
-        ease: SlowMo.ease.config(0.7, 0.7, false),
-        y: -50
-      }
-    );
-  
-    var tween_opacity = new TimelineMax();
-    tween_opacity
-      .to(currentAnimateElem, 0.3, {
-        ease: Linear.easeNone,
-        opacity: 1
-      })
-      .to(
+  let controller = new ScrollMagic.Controller();
+  let animateElem = ["#animate1", "#animate2", "#animate3",];
+  let triggerElem = ["#trigger1", "#trigger2", "#trigger3",];
+
+  for (let i = 0; i < animateElem.length; i++) {
+    let currentAnimateElem = animateElem[i];
+    let currentTriggerElem = triggerElem[i];
+
+    let timeline = new TimelineMax();
+
+    let tween_move = TweenMax.fromTo(
         currentAnimateElem,
-        0.3,
+        1,
         {
-          ease: Linear.easeNone,
-          opacity: 0
+          ease: SlowMo.ease.config(0.7, 0.7, false),
+          y: 50
         },
-        "+=0.4"
-      );
-  
+        {
+          ease: SlowMo.ease.config(0.7, 0.7, false),
+          y: -50
+        }
+    );
+
+    let tween_opacity = new TimelineMax();
+    tween_opacity
+        .to(currentAnimateElem, 0.3, {
+          ease: Linear.easeNone,
+          opacity: 1
+        })
+        .to(
+            currentAnimateElem,
+            0.3,
+            {
+              ease: Linear.easeNone,
+              opacity: 0
+            },
+            "+=0.4"
+        );
+
     timeline.add(tween_move, 0).add(tween_opacity, 0);
-  
-    var scene_main = new ScrollMagic.Scene({
+
+    let scene_main = new ScrollMagic.Scene({
       triggerElement: currentTriggerElem,
       duration: "1500px"
     })
-      .setTween(timeline)
-      .addTo(controller);
+        .setTween(timeline)
+        .addTo(controller);
   }
 }
 
+// 첫 번쨰 텍스트 애니메이션 실행
 function homeTextAnimation1() {
-  // 첫 번쨰 텍스트 애니메이션 실행
   spanArray1.forEach((spanEl,index) => {
     setTimeout(() => {
       spanEl.style.visibility = 'visible';
       spanEl.classList.remove('txt_blur_hide');
       spanEl.classList.add('txt_blur_show');
-      spanEl.addEventListener('animationend', (e) => {        
+      spanEl.addEventListener('animationend', (e) => {
         if( e.animationName == "txt_blur_show" ) {
-          setTimeout(() => {
-            spanEl.classList.remove('txt_blur_show');
-            spanEl.classList.add('txt_blur_hide');
-          }, 10000);
+          if( (spanArray1.length-1) == index ){
+            setTimeout(() => {
+              homeTextAnimation2();
+            }, 3000);
+          }
         } else {
-            spanEl.classList.remove('txt_blur_hide');
-            spanEl.style.visibility = 'hidden';
-            if( (spanEl.lnegth-1) == index ){
-              setTimeout(() => {
-                homeTextAnimation2();
-              }, 15000);
-            }
+          spanEl.classList.remove('txt_blur_hide');
+          spanEl.style.visibility = 'hidden';
         }
       });
     }, Math.random() * 1000);
   });
-
-  
-
 }
 
 
+// 두 번쨰 텍스트 애니메이션 실행
 function homeTextAnimation2() {
-  // 첫 번쨰 텍스트 애니메이션 실행
-  spanArray2.forEach((spanEl) => {
+  spanArray2.forEach((spanEl2,index) => {
     setTimeout(() => {
-      spanEl.style.visibility = 'visible';
-      spanEl.classList.remove('txt_blur_hide');
-      spanEl.classList.add('txt_blur_show');
-      spanEl.addEventListener('animationend', (e) => {        
+      spanEl2.style.visibility = 'visible';
+      spanEl2.classList.remove('txt_blur_hide');
+      spanEl2.classList.add('txt_blur_show');
+      spanEl2.addEventListener('animationend', (e) => {
         if( e.animationName == "txt_blur_show" ) {
-          setTimeout(() => {
-            spanEl.classList.remove('txt_blur_show');
-            spanEl.classList.add('txt_blur_hide');
-          }, 10000);
-        } else {
-            spanEl.classList.remove('txt_blur_hide');
-            spanEl.style.visibility = 'hidden';
-            if( (spanEl.lnegth-1) == index ){
+          spanArray1.forEach((spanEl1) => {
+            if( (spanArray2.length-1) == index ){
               setTimeout(() => {
-                homeTextAnimation1();
-              }, 15000);
+                spanEl1.classList.remove('txt_blur_show');
+                spanEl1.classList.add('txt_blur_hide');
+              }, Math.random() * 1000);
             }
+          });
+          setTimeout(() => {
+            spanEl2.classList.remove('txt_blur_show');
+            spanEl2.classList.add('txt_blur_hide');
+          }, 6000);
+        } else {
+          spanEl2.classList.remove('txt_blur_hide');
+          spanEl2.style.visibility = 'hidden';
+          if( (spanArray2.length-1) == index ){
+            homeTextAnimation1();
+          }
         }
       });
     }, Math.random() * 1000);
@@ -304,17 +316,17 @@ function onLoadingMedium() {
   const swiperWrap = document.getElementsByClassName("swiper-wrapper")[0];
   $.get('https://api.rss2json.com/v1/api.json', {
     rss_url: 'https://medium.com/feed/@metaoctagon'
-    }, (res) => {
+  }, (res) => {
     if (res.status == 'ok') {
       if( res.items.length > 0 ) {
-        res.items.forEach((item,index) => {          
-          if( index < 10 ) {            
+        res.items.forEach((item,index) => {
+          if( index < 10 ) {
             const swiperEl = document.createElement("div");
             swiperEl.classList = "swiper-slide";
             swiperEl.innerHTML = '<div class="news-wrap"> <p class="news-tit">'+item.title+'</p> </div>';
             swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(item.content, 'text/html');                       
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(item.content, 'text/html');
             console.log(doc.body.getElementsByTagName("p")[0].innerText);
             swiperEl.addEventListener("click",()=>{
               window.open(item.link);
@@ -322,10 +334,74 @@ function onLoadingMedium() {
             swiperWrap.appendChild(swiperEl);
           }
         })
-      }      
+      }
     }});
+}
+
+function onLoadVideoPlayer() {
+  // 2. This code loads the IFrame Player API code asynchronously.
+  let tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  let firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  let player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '100%',
+      width: '100%',
+      videoId: 'HtESDBJTFkY',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  //window.onYouTubePlayerAPIReady = function() {
+  onYouTubeIframeAPIReady();
+//};
+
+
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    var target = event.target;
+    window.videoPlayer = target;
+    //event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  let done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
 }
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
+}
+
+function menuClick() {
+  var menuOnButton = document.getElementsByClassName('btn-menu')[0],
+      menuOffButton = document.getElementsByClassName('btn-menu-close')[0];
+
+  menuOnButton.onclick = () => {
+    menuOnButton.classList.add('active');
+  }
+
+  menuOffButton.onclick = () => {
+    menuOnButton.classList.remove('active');
+  }
 }

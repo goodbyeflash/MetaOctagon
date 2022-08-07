@@ -27,25 +27,29 @@
       <!-- 네비게이션 바-->
       <header>
         <div class="inner">
-          <ul id="nav">
-            <li id="goHome"><a>HOME</a></li>
-            <li id="goMetaverse"><a>METAVERSE</a></li>
-            <li id="goMetagonz">
-              <a>METAGONZ</a>
-              <div class="menu-bubble">
-                <span>METAROID & NFT</span>
-              </div>
-            </li>
-            <li id="goAbout"><a>ABOUT</a></li>
-          </ul>
+          <span class="btn-menu"><img src="images/btn-menu.png" alt=""></span>
+          <div id="nav">
+            <span class="btn-menu-close"><img src="images/btn-close.png" alt=""></span>
+            <ul>
+              <li id="goHome"><a>HOME</a></li>
+              <li id="goMetaverse"><a>METAVERSE</a></li>
+              <li id="goMetagonz">
+                <a>METAGONZ</a>
+                <div class="menu-bubble">
+                  <span>METAROID & NFT</span>
+                </div>
+              </li>
+              <li id="goAbout"><a>ABOUT</a></li>
+            </ul>
+          </div>
         </div>
       </header>
 
       <div id="main">
       <!-- 홈 페이지-->
         <div id="homePage">
-          <iframe style="width: 100%; height: 100%; border: none" src="./public/MetaOctagon3DViewer/"></iframe>
-
+<!--          <iframe style="width: 100%; height: 100%; border: none" src="./public/MetaOctagon3DViewer/"></iframe>-->
+          <div style="width: 100%; height: 100%; background-image: url('./images/bg-home.png'); background-size: 100% 100%; background-repeat: no-repeat; " ></div>
           <div id="homeText1" class="homeText">
             <h2>
               <span>INTO</span>
@@ -173,6 +177,53 @@
               <div class="inner">
                 <div class="swiper mySwiper">
                   <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="news-wrap">
+                        <div class="news-cont">
+                          <p class="news-tit">메타옥타곤, '메타곤즈' 티저와 포스터 영상 선보여</p>
+                          <div class="hover">
+                            <p class="news-txt">메타플레이어사의 메타옥타곤 NFT 프로젝트 티저 포서터와 영상이 공개되었다.</p>
+                            <a href="" class="news-more"><img src="images/btn-more.png" alt="더보기"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="news-wrap">
+                        <div class="news-cont">
+                          <p class="news-tit">메타옥타곤, '메타곤즈' 티저와 포스터 영상 선보여</p>
+                          <div class="hover">
+                            <p class="news-txt">메타플레이어사의 메타옥타곤 NFT 프로젝트 티저 포서터와 영상이 공개되었다.</p>
+                            <a href="" class="news-more"><img src="images/btn-more.png" alt="더보기"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="news-wrap">
+                        <div class="news-cont">
+                          <p class="news-tit">메타옥타곤, '메타곤즈' 티저와 포스터 영상 선보여</p>
+                          <div class="hover">
+                            <p class="news-txt">메타플레이어사의 메타옥타곤 NFT 프로젝트 티저 포서터와 영상이 공개되었다.</p>
+                            <a href="" class="news-more"><img src="images/btn-more.png" alt="더보기"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                      <div class="news-wrap">
+                        <div class="news-cont">
+                          <p class="news-tit">메타옥타곤, '메타곤즈' 티저와 포스터 영상 선보여</p>
+                          <div class="hover">
+                            <p class="news-txt">메타플레이어사의 메타옥타곤 NFT 프로젝트 티저 포서터와 영상이 공개되었다.</p>
+                            <a href="" class="news-more"><img src="images/btn-more.png" alt="더보기"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -261,7 +312,7 @@
                 <ul class="sns-list">
                   <li><a href="https://www.instagram.com/metaoctagon_official/" target="_blank" class="icon1">인스타그램</a></li>
                   <li><a href="https://www.youtube.com/channel/UC3RqSGLDwJgbK6pMToUvLpQ" target="_blank" class="icon2">유튜브</a></li>
-                  <li><a href="" class="icon3">페이스북</a></li>
+                  <li><a href="" class="icon3">링크트리</a></li>
                   <li><a href="https://mobile.twitter.com/metaoctagon" target="_blank" class="icon4">트위터</a></li>
                   <li><a href="https://medium.com/@metaoctagon" target="_blank" class="icon5">미디엄</a></li>
                   <li><a href="https://discord.gg/k2vrhUYcpq" target="_blank" class="icon6">디스코드</a></li>
@@ -285,7 +336,7 @@
 
             <footer>
               <div class="inner">
-                <p>
+                <p class="copy">
                   Meta Octagon® are registered trademarks of Meta Player Inc. © 2022 Meta Player Inc. All rights reserved.<br>
                   All other copyrights and trademarks are the property of their respective owners.
                 </p>
@@ -331,16 +382,16 @@
         },
         breakpoints: {
           320: {
-            slidesPerView: 2,
-            spaceBetween: 15
+            slidesPerView: 1,
+            spaceBetween: 20
           },
-          769: {
+          768: {
             slidesPerView: 2,
             spaceBetween: 15
           },
           1231: {
             slidesPerView: 3,
-            spaceBetween: 20
+            spaceBetween: 15
           },
           1529: {
             slidesPerView: 4,

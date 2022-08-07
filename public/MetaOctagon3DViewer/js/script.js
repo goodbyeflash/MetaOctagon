@@ -115,7 +115,7 @@ const tick = () => {
 // GLTF
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load(
-  './models/BarramundiFish.glb',
+  './models/0803.glb',
   //'./models/object.glb',
   (gltf) => {
     const model = gltf.scene;
