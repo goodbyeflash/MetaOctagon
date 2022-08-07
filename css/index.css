@@ -350,6 +350,10 @@ header {
     display: block;
 }
 
+#section3 .swiper-button-disabled {
+    pointer-events: all;
+}
+
 #section3 .swiper-pagination-bullet {
     background-color: #fff;
 }
@@ -371,6 +375,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    z-index: 100;
 }
 
 #section3 .btn-slider::after {display: none;}
@@ -379,19 +384,28 @@ header {
     left: 0;
     background-image: url('../images/slider-prev-on.png');
 }
+
 #section3 .btn-slider.next {
     left: auto;
     right: 0;
     background-image: url('../images/slider-next-on.png');
 }
-#section3 .btn-slider.prev.swiper-button-disabled {
 
+#section3 .btn-slider.prev.swiper-button-disabled {
     background-image: url('../images/slider-prev.png');
 }
 #section3 .btn-slider.next.swiper-button-disabled {
 
     background-image: url('../images/slider-next.png');
 }
+
+#section3 .swiper-button-disabled.prev:hover {
+    background-image: url('../images/slider-prev-on.png');
+}
+#section3 .swiper-button-disabled.next:hover {
+    background-image: url('../images/slider-next-on.png');
+}
+
 
 #section3 .news-wrap {
     position: absolute;

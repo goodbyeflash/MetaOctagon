@@ -15,7 +15,7 @@ window.onload = () => {
   scrollTextAnimation();
   document.getElementById('homePage').style.width = `100vw`;
   document.getElementById('homePage').style.height = `100vh`;
-  document.getElementById('nav').childNodes.forEach((el) => {
+  [...document.getElementById('nav').getElementsByTagName("li")].forEach((el) => {
     if (el.id) {
       el.onclick = () => {
         goLink(el.id);
@@ -23,8 +23,8 @@ window.onload = () => {
     }
   });
   onSendButton();
-  // onLoadingMedium();
-  // onLoadVideoPlayer();
+  onLoadingMedium();
+  onLoadVideoPlayer();
 
   document.getElementsByClassName("video-area")[0].onclick = (e) => {
     document.getElementsByClassName("video-bg")[0].style.visibility = "hidden";
@@ -34,7 +34,6 @@ window.onload = () => {
   };
 
   menuClick();
-  menuClickoff();
 };
 
 window.addEventListener('message', function (e) {
@@ -73,6 +72,7 @@ function loading() {
 }
 
 function goLink(id) {
+  console.log(goLink);
   if (id == 'goHome') {
     window.scrollTo(0, 0);
   } else if (id == 'goMetaverse') {
@@ -88,6 +88,8 @@ function onSendButton() {
   const sendButton = document.getElementById('send');
   const inputMail = document.getElementById('inputMail');
   const mailMsg = document.getElementById('mailMsg');
+  //Todo
+  return;
   sendButton.onclick = () => {
     mailMsg.innerText = '';
     let regEmail =
@@ -321,13 +323,20 @@ function onLoadingMedium() {
       if( res.items.length > 0 ) {
         res.items.forEach((item,index) => {
           if( index < 10 ) {
-            const swiperEl = document.createElement("div");
-            swiperEl.classList = "swiper-slide";
-            swiperEl.innerHTML = '<div class="news-wrap"> <p class="news-tit">'+item.title+'</p> </div>';
-            swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
             let parser = new DOMParser();
             let doc = parser.parseFromString(item.content, 'text/html');
-            console.log(doc.body.getElementsByTagName("p")[0].innerText);
+            const swiperEl = document.createElement("div");
+            swiperEl.classList = "swiper-slide";
+            swiperEl.innerHTML = `<div class="news-wrap">
+                                    <div class="news-cont">
+                                      <p class="news-tit">${item.title}</p>
+                                        <div class="hover">
+                                        <p class="news-txt">${doc.body.getElementsByTagName("p")[0].innerText}</p>
+                                        <a class="news-more"><img src="images/btn-more.png" alt="더보기"></a>
+                                      </div>
+                                    </div>
+                                  </div>`;
+            swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
             swiperEl.addEventListener("click",()=>{
               window.open(item.link);
             });
@@ -339,13 +348,6 @@ function onLoadingMedium() {
 }
 
 function onLoadVideoPlayer() {
-  // 2. This code loads the IFrame Player API code asynchronously.
-  let tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  let firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
   // 3. This function creates an <iframe> (and YouTube player)
   //    after the API code downloads.
   let player;
@@ -361,11 +363,9 @@ function onLoadVideoPlayer() {
     });
   }
 
-  //window.onYouTubePlayerAPIReady = function() {
+  // window.onYouTubePlayerAPIReady = function() {
   onYouTubeIframeAPIReady();
-//};
-
-
+  //};
 
   // 4. The API will call this function when the video player is ready.
   function onPlayerReady(event) {
