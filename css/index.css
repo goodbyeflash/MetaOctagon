@@ -223,6 +223,7 @@ header {
     position: relative;
     width: 100%;
     height: 15%;
+    opacity: 0;
 }
 
 #section1 .text-wrap ul li > div {
