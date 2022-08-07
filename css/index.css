@@ -71,6 +71,10 @@ header {
     text-underline-offset: 6px;
 }
 
+#nav ul li a:hover {
+    color: #d72a85;
+}
+
 #nav ul li a:hover + .menu-bubble {
     display: block;
 }
@@ -128,7 +132,7 @@ header {
 }
 
 #homePage #homeText1 {
-    top: 250px;
+    top: 300px;
 }
 
 #homePage #homeText1 h2 {
@@ -217,7 +221,7 @@ header {
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #section1 .text-wrap ul::after {
@@ -344,10 +348,6 @@ header {
     top: auto;
     bottom: auto;
     margin-top: 60px;
-}
-
-#section3 .swiper-button-lock, #section3 .swiper-pagination-lock {
-    display: block;
 }
 
 #section3 .swiper-button-disabled {
@@ -487,10 +487,10 @@ header {
 }
 
 #section4 ul li:nth-child(1)::after {
-    width: 90px;
-    height: 102px;
-    bottom: 60px;
-    right: 2px;
+    width: 79px;
+    height: 116px;
+    bottom: 70px;
+    right: 7px;
     background-image: url('../images/news-1.png');
 }
 
@@ -503,8 +503,8 @@ header {
 }
 
 #section4 ul li:nth-child(3)::after {
-    width: 120px;
-    height: 90px;
+    width: 108px;
+    height: 49px;
     right: 0;
     background-image: url('../images/news-3.png');
 }
@@ -583,6 +583,7 @@ header {
     border: 0;
     outline: 0;
     box-sizing: border-box;
+    color: #d72a85;
     background: url('../images/bg-email.png') no-repeat center / 100% auto;
 }
 
