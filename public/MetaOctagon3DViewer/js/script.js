@@ -17,11 +17,13 @@ const sizes = {
   height: window.innerHeight,
 };
 
-// Lights
+/**
+ * Lights
+ */
 const lightState = {
-  ambientIntensity: 0,
+  ambientIntensity: 1,
   ambientColor: 0xffffff,
-  directIntensity: 2,
+  directIntensity: 1,
   directColor: 0xffffff,
 };
 
@@ -34,48 +36,50 @@ const directionalLight = new THREE.DirectionalLight(
   lightState.directColor,
   lightState.directIntensity
 );
-
-// const pointLight = new THREE.PointLight(0xff9000, 0.9, 15, 3);
-// pointLight.position.x = 2;
-// pointLight.position.y = 3;
-// pointLight.position.z = 4;
-
+ const pointLight = new THREE.PointLight(0xff9000, 0.9, 15, 3);
 // const spotLight = new THREE.SpotLight(0x78ff00, 0.5, 30, Math.PI * 0.1, 0.1, 1);
-// spotLight.position.set(0, 2, 3);
-// scene.add(spotLight);
+// const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 2, 10, 5);
 
-// spotLight.target.position.x = -0.75;
+/**
+ * Light Helpers
+ */
+const hemisphereLightHelper = new THREE.HemisphereLightHelper(
+  hemisphereLight,
+  0.2
+);
+// const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+const directionHelper = new THREE.DirectionalLightHelper( directionalLight, 5 );
+const sphereSize = 1;
+const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );
+
+/**
+ * Light Positions
+ */
+// hemisphereLight.position.x = 10;
+// hemisphereLight.position.z = 100;
+// ambientLight.position.x = 100;
+// directionalLight.position.x = 10;
+// directionalLight.position.y = 10;
+// directionalLight.position.z = 0;
+
+ scene.add(hemisphereLight);
+ scene.add(ambientLight);
+scene.add(directionalLight);
+// scene.add(rectAreaLight);
+// scene.add(spotLight);
 // scene.add(spotLight.target);
 
-// const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 2, 10, 5);
-// rectAreaLight.position.set(-1.5, 0, 1.5);
-// rectAreaLight.lookAt(new THREE.Vector3());
-
-// Light Helpers
-// const hemisphereLightHelper = new THREE.HemisphereLightHelper(
-//   hemisphereLight,
-//   0.2
-// );
-// scene.add(hemisphereLightHelper);
-
-// const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+//scene.add(hemisphereLightHelper);
 // scene.add(spotLightHelper);
-
-
-directionalLight.position.x = 2;
-
-//scene.add(rectAreaLight);
-scene.add(hemisphereLight);
-scene.add(ambientLight);
-scene.add(directionalLight);
-
+//scene.add( directionHelper );
+//scene.add( pointLightHelper );
 
 /**
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
-  alpha: true,
+  //alpha: true,
   antialias: true,
 });
 renderer.setSize(sizes.width, sizes.height);
@@ -83,6 +87,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.physicallyCorrectLights = true;
 renderer.shadowMap.enabled = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
+
 
 const tick = () => {
   // Update Orbital Controls
@@ -97,11 +102,11 @@ const tick = () => {
 
   //spotLightHelper.update();
 
-  if (camera.position.x >= 50) {
-    camera.position.x -= 0.01;
-    camera.position.y -= 0.001;
-    camera.position.z -= 0.001;
-  }
+  // if (camera.position.x >= 50) {
+  //   camera.position.x -= 0.01;
+  //   camera.position.y -= 0.001;
+  //   camera.position.z -= 0.001;
+  // }
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
@@ -110,16 +115,18 @@ const tick = () => {
 // GLTF
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load(
-  './models/0803.glb',
+  './models/BarramundiFish.glb',
+  //'./models/object.glb',
   (gltf) => {
-    const model = gltf.scene;    
-    model.position.y = -18;
+    const model = gltf.scene;
+    //model.position.y = -15;
 
-    //mixer = new THREE.AnimationMixer(model);
+    // mixer = new THREE.AnimationMixer(model);
 
-    //const clips = gltf.animations;
+    // const clips = gltf.animations;
 
     // clips.forEach((clip) => {
+      
     //   const liTag = document.createElement('li');      
     //   liTag.innerText = clip.name;
     //   liTag.style.cursor = 'pointer';
@@ -170,12 +177,16 @@ gltfLoader.load(
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(
-  20,
+  5,
   sizes.width / sizes.height,
-  70,
-  1000
+  0.01,
+  5000
 );
-camera.position.x = 100;
+// camera.position.x = 22;
+// camera.position.y = 0;
+// camera.position.z = 5;
+
+camera.position.x = 10;
 camera.position.y = 0;
 camera.position.z = 0;
 
@@ -186,11 +197,11 @@ const oribitControls = new THREE.OrbitControls(camera, canvas);
 oribitControls.enableDamping = true;
 oribitControls.enableZoom = false;
 
-oribitControls.minPolarAngle = (90 - 20) * Math.PI / 180;
-oribitControls.maxPolarAngle = (90 + 30) * Math.PI / 180;
+// oribitControls.minPolarAngle = (90 - 20) * Math.PI / 180;
+// oribitControls.maxPolarAngle = (90 + 10) * Math.PI / 180;
 
-oribitControls.maxAzimuthAngle = 165 * Math.PI / 180;
-oribitControls.minAzimuthAngle = 10 * Math.PI / 180;
+// oribitControls.maxAzimuthAngle = 165 * Math.PI / 180;
+// oribitControls.minAzimuthAngle = 10 * Math.PI / 180;
 
 /**
  * Animate
