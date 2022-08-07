@@ -24,6 +24,15 @@ window.onload = () => {
   });
   onSendButton();
   onLoadingMedium();   
+  onLoadVideoPlayer();
+
+  document.getElementsByClassName("video-area")[0].onclick = (e) => {
+    document.getElementsByClassName("video-bg")[0].style.visibility = "hidden";
+    let player = window.videoPlayer;
+    player.playVideo();
+    //event.target.playVideo();
+  };
+
 };
 
 window.addEventListener('message', function (e) {
@@ -191,17 +200,17 @@ function scrollCanvasAnimation() {
 }
 
 function scrollTextAnimation() {
-  var controller = new ScrollMagic.Controller();
-  var animateElem = ["#animate1", "#animate2", "#animate3",];
-  var triggerElem = ["#trigger1", "#trigger2", "#trigger3",];
+  let controller = new ScrollMagic.Controller();
+  let animateElem = ["#animate1", "#animate2", "#animate3",];
+  let triggerElem = ["#trigger1", "#trigger2", "#trigger3",];
   
-  for (var i = 0; i < animateElem.length; i++) {
-    var currentAnimateElem = animateElem[i];
-    var currentTriggerElem = triggerElem[i];
+  for (let i = 0; i < animateElem.length; i++) {
+    let currentAnimateElem = animateElem[i];
+    let currentTriggerElem = triggerElem[i];
   
-    var timeline = new TimelineMax();
+    let timeline = new TimelineMax();
   
-    var tween_move = TweenMax.fromTo(
+    let tween_move = TweenMax.fromTo(
       currentAnimateElem,
       1,
       {
@@ -214,7 +223,7 @@ function scrollTextAnimation() {
       }
     );
   
-    var tween_opacity = new TimelineMax();
+    let tween_opacity = new TimelineMax();
     tween_opacity
       .to(currentAnimateElem, 0.3, {
         ease: Linear.easeNone,
@@ -232,7 +241,7 @@ function scrollTextAnimation() {
   
     timeline.add(tween_move, 0).add(tween_opacity, 0);
   
-    var scene_main = new ScrollMagic.Scene({
+    let scene_main = new ScrollMagic.Scene({
       triggerElement: currentTriggerElem,
       duration: "1500px"
     })
@@ -241,8 +250,8 @@ function scrollTextAnimation() {
   }
 }
 
+// 첫 번쨰 텍스트 애니메이션 실행
 function homeTextAnimation1() {
-  // 첫 번쨰 텍스트 애니메이션 실행
   spanArray1.forEach((spanEl,index) => {
     setTimeout(() => {
       spanEl.style.visibility = 'visible';
@@ -250,48 +259,47 @@ function homeTextAnimation1() {
       spanEl.classList.add('txt_blur_show');
       spanEl.addEventListener('animationend', (e) => {        
         if( e.animationName == "txt_blur_show" ) {
-          setTimeout(() => {
-            spanEl.classList.remove('txt_blur_show');
-            spanEl.classList.add('txt_blur_hide');
-          }, 10000);
+          if( (spanArray1.length-1) == index ){
+            setTimeout(() => {
+              homeTextAnimation2();
+            }, 3000);
+          }          
         } else {
             spanEl.classList.remove('txt_blur_hide');
             spanEl.style.visibility = 'hidden';
-            if( (spanEl.lnegth-1) == index ){
-              setTimeout(() => {
-                homeTextAnimation2();
-              }, 15000);
-            }
         }
       });
     }, Math.random() * 1000);
-  });
-
-  
-
+  }); 
 }
 
 
+// 두 번쨰 텍스트 애니메이션 실행
 function homeTextAnimation2() {
-  // 첫 번쨰 텍스트 애니메이션 실행
-  spanArray2.forEach((spanEl) => {
+  spanArray2.forEach((spanEl2,index) => {
     setTimeout(() => {
-      spanEl.style.visibility = 'visible';
-      spanEl.classList.remove('txt_blur_hide');
-      spanEl.classList.add('txt_blur_show');
-      spanEl.addEventListener('animationend', (e) => {        
-        if( e.animationName == "txt_blur_show" ) {
-          setTimeout(() => {
-            spanEl.classList.remove('txt_blur_show');
-            spanEl.classList.add('txt_blur_hide');
-          }, 10000);
-        } else {
-            spanEl.classList.remove('txt_blur_hide');
-            spanEl.style.visibility = 'hidden';
-            if( (spanEl.lnegth-1) == index ){
+      spanEl2.style.visibility = 'visible';
+      spanEl2.classList.remove('txt_blur_hide');
+      spanEl2.classList.add('txt_blur_show');
+      spanEl2.addEventListener('animationend', (e) => {        
+        if( e.animationName == "txt_blur_show" ) {    
+          spanArray1.forEach((spanEl1) => {
+            if( (spanArray2.length-1) == index ){
               setTimeout(() => {
-                homeTextAnimation1();
-              }, 15000);
+                spanEl1.classList.remove('txt_blur_show');
+                spanEl1.classList.add('txt_blur_hide');
+               }, Math.random() * 1000);
+            }
+          }); 
+          setTimeout(() => {
+            spanEl2.classList.remove('txt_blur_show');
+            spanEl2.classList.add('txt_blur_hide');
+          }, 6000);
+        } else {
+          spanEl2.classList.remove('txt_blur_hide');
+          spanEl2.style.visibility = 'hidden';
+            if( (spanArray2.length-1) == index ){
+              homeTextAnimation1();
             }
         }
       });
@@ -313,8 +321,8 @@ function onLoadingMedium() {
             swiperEl.classList = "swiper-slide";
             swiperEl.innerHTML = '<div class="news-wrap"> <p class="news-tit">'+item.title+'</p> </div>';
             swiperEl.style.backgroundImage = `url(${item.thumbnail})`;
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(item.content, 'text/html');                       
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(item.content, 'text/html');                       
             console.log(doc.body.getElementsByTagName("p")[0].innerText);
             swiperEl.addEventListener("click",()=>{
               window.open(item.link);
@@ -324,6 +332,57 @@ function onLoadingMedium() {
         })
       }      
     }});
+}
+
+function onLoadVideoPlayer() {
+   // 2. This code loads the IFrame Player API code asynchronously.
+   let tag = document.createElement('script');
+
+   tag.src = "https://www.youtube.com/iframe_api";
+   let firstScriptTag = document.getElementsByTagName('script')[0];
+   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+   // 3. This function creates an <iframe> (and YouTube player)
+   //    after the API code downloads.
+   let player;
+   function onYouTubeIframeAPIReady() {
+     player = new YT.Player('player', {
+       height: '100%',
+       width: '100%',
+       videoId: 'HtESDBJTFkY',
+       events: {
+         'onReady': onPlayerReady,
+         'onStateChange': onPlayerStateChange
+       }
+     });
+   }
+
+   //window.onYouTubePlayerAPIReady = function() {
+    onYouTubeIframeAPIReady();
+//};
+
+   
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      var target = event.target;
+      window.videoPlayer = target;
+      //event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    let done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
 }
 
 function shuffle(array) {
