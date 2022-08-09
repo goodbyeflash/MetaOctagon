@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad99d71d-0bf3-490b-b2b4-9d76a0d1651d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/loadmap-dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-home.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg-email-mob .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg-email.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-email.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg-page.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-page.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg-section-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-section-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg-section-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-section-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/email .png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/images/news-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/news-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/images/news-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/youtube-hover.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/youtube-hover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/로드맵 그리드.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -43,15 +57,22 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/goodbyeFlash&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/goodbyeFlash/MER-frontend&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\goodbyeFlash\MetaOctagon" />
+      <recent name="C:\goodbyeFlash\MetaOctagon\public\MetaOctagon3DViewer" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +87,12 @@
       <workItem from="1659834956738" duration="88000" />
       <workItem from="1659835054287" duration="618000" />
       <workItem from="1659848230040" duration="5090000" />
-      <workItem from="1659868886577" duration="10695000" />
+      <workItem from="1659868886577" duration="10912000" />
+      <workItem from="1659960735093" duration="13000" />
+      <workItem from="1659960755001" duration="33000" />
+      <workItem from="1659960794676" duration="600000" />
+      <workItem from="1660046850705" duration="1688000" />
+      <workItem from="1660049456980" duration="5687000" />
     </task>
     <servers />
   </component>
