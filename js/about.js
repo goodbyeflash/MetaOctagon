@@ -31,6 +31,7 @@ window.addEventListener('message', function (e) {
 });
 
 function goLink(id) {
+    console.log(goLink);
     if (id == 'goHome') {
         window.scrollTo(0, 0);
     } else if (id == 'goMetaverse') {
@@ -245,6 +246,35 @@ function onLoadingMedium() {
                         swiperWrap.appendChild(swiperEl);
                     }
                 })
+
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 4,
+                    touches: true,
+                    watchOverflow: true,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 5
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 15
+                        },
+                        1321: {
+                            slidesPerView: 4,
+                            spaceBetween: 30
+                        }
+                    }
+                });
+
             }
         }});
 }
