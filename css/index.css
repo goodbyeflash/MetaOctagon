@@ -167,11 +167,6 @@ header {
     overflow: hidden;
 }
 
-.bg-area {
-    position: relative;
-    background: url('../images/bg-page.png') no-repeat center bottom / 100% 100%;
-}
-
 #section1 {
     position: relative;
     padding-top: 455px;
@@ -190,7 +185,6 @@ header {
     width: 1920px;
     height: 100%;
     transform: translate(-50%, -50%);
-    background: url('../images/bg-section-1.png') no-repeat top / 100% auto;
 }
 
 #section1 .canvas-area {

@@ -31,7 +31,6 @@ window.addEventListener('message', function (e) {
 });
 
 function goLink(id) {
-    console.log(goLink);
     if (id == 'goHome') {
         window.scrollTo(0, 0);
     } else if (id == 'goMetaverse') {

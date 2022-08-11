@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad99d71d-0bf3-490b-b2b4-9d76a0d1651d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/loadmap-dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/about.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-email-mob .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-email.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-email.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-page.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-page.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-section-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-section-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-section-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/bg-section-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/email .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/news-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/news-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/news-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/news-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/youtube-hover.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/youtube-hover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/로드맵 그리드.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="ad99d71d-0bf3-490b-b2b4-9d76a0d1651d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +73,7 @@
       <workItem from="1659960755001" duration="33000" />
       <workItem from="1659960794676" duration="600000" />
       <workItem from="1660046850705" duration="1688000" />
-      <workItem from="1660049456980" duration="5687000" />
+      <workItem from="1660049456980" duration="5829000" />
     </task>
     <servers />
   </component>
