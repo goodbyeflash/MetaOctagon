@@ -59,10 +59,9 @@
 
 @font-face {
     font-family: "Carbon-Regular";
-    src: url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.eot");
-    src: url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.eot?#iefix") format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.woff2") format("woff2"),
-    url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.woff") format("woff"),
-    url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.ttf") format("truetype"),
-    url("//db.onlinewebfonts.com/t/c2f37b51cfdcc16889b758c08cbca40d.svg#Carbon Regular") format("svg");
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Carbon.otf') format('opentype'),
+    url('../fonts/Carbon.woff2') format('woff2'),
+    url('../fonts/Carbon.woff') format('woff');
 }

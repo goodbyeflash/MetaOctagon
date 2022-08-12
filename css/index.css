@@ -589,6 +589,7 @@ header {
     border-radius: 50%;
     text-indent: -9999px;
     overflow: hidden;
+    box-shadow: 5px 6px 20px 0px rgba(4, 9, 41, 0.7);
 }
 
 #section5 .sns-list li a::after {
@@ -661,15 +662,20 @@ footer .contact-us span {
 }
 
  .f-logo-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
+     display: flex;
+     margin: 0 auto;
+     width: 553px;
+     justify-content: space-evenly;
+     align-items: center;
 }
 
  .f-logo-list li {
-     margin: 0 25px ;
+     height: 35px;
  }
+
+.f-logo-list li img {
+    height: 100%;
+}
 
 
 .animate {
@@ -737,7 +743,16 @@ footer .contact-us span {
     animation: txt_blur_hide 2s alternate ease-in;
   }
 
+@media screen and (min-width:1321px) {
+    .inner, #homePage .homeText {width: 1321px;}
+    #homePage #homeText1 {font-size: 2.3rem;}
+}
+
 @media screen and (max-width:1230px) {
+    header {
+        padding-top: 40px;
+    }
+
     .btn-menu, .btn-menu-close {display: block;}
     .btn-menu {
         position: absolute;
@@ -769,6 +784,14 @@ footer .contact-us span {
     #nav ul li {
         float: none;
         margin-left: 0;
+    }
+
+    #nav ul li a {
+        display: block;
+        padding: 16px 16px 17px;
+        font-size: 3.3rem;
+        text-decoration: none;
+        color: #dbdbdb !important;
     }
 
     #nav ul li a:hover {
@@ -857,29 +880,10 @@ footer .contact-us span {
         background-color: #ea1e9b;
     }
 
-
-
-
-}
-
-
-@media screen and (min-width:1321px) {
-    .inner, #homePage .homeText {width: 1321px;}
-    #homePage #homeText1 {font-size: 2.3rem;}
 }
 
 @media screen and (max-width: 667px) {
     .mob {display: block;}
-    header {
-        padding-top: 40px;
-    }
-    #nav ul li a {
-        display: block;
-        padding: 16px 16px 17px;
-        font-size: 3.3rem;
-        text-decoration: none;
-        color: #dbdbdb !important;
-    }
     #main::before {
         width: 667px;
         background: url('../images/mobile/bg-page.jpg') no-repeat bottom / 100% auto;
@@ -924,7 +928,7 @@ footer .contact-us span {
         transform: translate(-50%, -50%);
     }
     #section2 .video-area {
-        width: 88%;
+        width: 280px;
         height: 158px;
     }
 
@@ -954,23 +958,21 @@ footer .contact-us span {
     #section4 ul li h4::after {left: 70px;}
     #section4 ul li p {padding-left: 35px; font-size: 1.1rem; line-height: 1.7;}
 
-    #section5 .sns-list li {margin: 0 5px;}
+    #section5 .sns-list {justify-content: space-evenly;}
+    #section5 .sns-list li {margin: 0;}
     #section5 .sns-list li a {width: 30px; height: 30px; margin: 0 auto; background-color: #d6d6d6;}
-    #section5 .sns-list li a::after {background-size: 44px auto;}
+    #section5 .sns-list li a::after {background-size: 30px auto;}
 
-    footer .logo-wrap {width: 100%; padding: 60px 0 30px;}
+    footer .logo-wrap {width: 100%; padding: 60px 0 0;}
     footer .logo-wrap p img {height: 9px;}
 
     footer .f-logo-img {justify-content: center}
-    footer .f-logo-img li {width: 30%}
+    footer .f-logo-img li {width: 23%; margin-top: 20px;}
     footer .f-logo-img li:first-child img {width: 37px; height: 41px;}
     footer .f-logo-img li:last-child img {width: 47px; height: 41px;}
 
-    footer .f-logo-list li {margin: 0 10px;}
-    footer .f-logo-list li:nth-child(1) img {height: 7px !important;}
-    footer .f-logo-list li:nth-child(2) img {height: 13px !important;}
-    footer .f-logo-list li:nth-child(3) img {height: 9px !important;}
-    footer .f-logo-list li:nth-child(4) img {height: 7px !important;}
+    footer .f-logo-list {width: 80%;}
+    footer .f-logo-list li {margin: 0; height: 14px;}
 
     footer .copy {margin-top: 45px; margin-bottom: 45px; font-size: 1rem;}
 
