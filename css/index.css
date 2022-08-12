@@ -847,16 +847,17 @@ footer .contact-us span {
         display: table-cell;
         vertical-align: middle;
     }
-    #section4 ul li h4 {padding-right: 65px; text-align: right;}
+    #section4 ul li h4 > div {position: relative; padding-right: 65px; text-align: right;}
     #section4 ul li h4 strong {display: block; margin-bottom: 10px;}
     #section4 ul li h4 strong::before {display: none;}
 
-    #section4 ul li p::before,
-    #section4 ul li h4::after {
+    #section4 ul li h4::after,
+    #section4 ul li h4 > div::after {
         content: '';
         display: block;
         position: absolute;
     }
+
     #section4 ul li h4::after {
         top:0;
         left: 123px;
@@ -865,15 +866,16 @@ footer .contact-us span {
         background-color: #d72a85;
     }
 
-    #section4 ul li p {position: relative; padding-left: 70px;}
-    #section4 ul li p::before {
+    #section4 li h4 > div::after {
         top: 50%;
-        left: 0;
+        left: 123px;
         width: 16px;
         height: 16px;
         background: url('../images/loadmap-dot.png') no-repeat center;
         transform: translateX(-50%);
     }
+
+    #section4 ul li p {position: relative; padding-left: 70px;}
 
     #section5 label {text-align: left;}
     #section5 label, #section5 input, #section5 button {
@@ -966,10 +968,11 @@ footer .contact-us span {
     #section4 h3 {font-size: 2.8rem;}
     #section4 ul {margin-top: 35px;}
     #section4 ul li {padding-bottom: 50px;}
-    #section4 ul li h4 {padding-right: 35px; font-size: 1.5rem;}
+    #section4 ul li h4 {padding-right: 5px; font-size: 1.5rem;}
     #section4 ul li h4 strong {font-size: 1.9rem;}
     #section4 ul li h4::after {left: 70px;}
-    #section4 ul li p {padding-left: 35px; font-size: 1.1rem; line-height: 1.7;}
+    #section4 ul li h4 > div::after {left: 70px;}
+    #section4 ul li p {padding-left: 0; font-size: 1.1rem; line-height: 1.7;}
 
     #section5 .sns-list {justify-content: space-evenly;}
     #section5 .sns-list li {margin: 0;}

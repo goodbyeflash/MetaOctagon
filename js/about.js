@@ -259,7 +259,7 @@ function onLoadingMedium() {
                         clickable: true,
                     },
                     breakpoints: {
-                        320: {
+                        280: {
                             slidesPerView: 2,
                             spaceBetween: 5
                         },
