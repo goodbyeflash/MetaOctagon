@@ -8,7 +8,7 @@ window.onload = () => {
             };
         }
     });
-    onSendButton();
+    //onSendButton();
     onLoadingMedium();
     onLoadVideoPlayer();
 
@@ -31,9 +31,8 @@ window.addEventListener('message', function (e) {
 });
 
 function goLink(id) {
-    console.log(goLink);
     if (id == 'goHome') {
-        window.scrollTo(0, 0);
+        window.location.href = "index.html";
     } else if (id == 'goMetaverse') {
         window.open('./public/MetaOctagonUnity'); // 새창에서 열림
     } else if (id == 'goMetagonz') {
@@ -61,7 +60,7 @@ function onSendButton() {
         sendButton.disabled = true;
         $.ajax({
             type: 'GET',
-            url: 'https://script.google.com/macros/s/AKfycbyHdyYH0_jmFU46phL_HFBMRWPIPA9oaiRS9Pks5RjMsYU8-tgh4DH9Ntq9V_cKy3d4bQ/exec',
+            url: '',
             data: {
                 이메일: document.getElementById('inputMail').value,
             },
@@ -322,10 +321,12 @@ function onLoadVideoPlayer() {
 }
 
 function menuClick() {
+    console.log(document.getElementsByClassName('btn-menu')[0]);
     var menuOnButton = document.getElementsByClassName('btn-menu')[0],
         menuOffButton = document.getElementsByClassName('btn-menu-close')[0];
 
     menuOnButton.onclick = () => {
+        console.log("ASDF");
         menuOnButton.classList.add('active');
     }
 

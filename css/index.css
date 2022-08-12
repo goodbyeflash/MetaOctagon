@@ -857,9 +857,7 @@ footer .contact-us span {
         background-color: #ea1e9b;
     }
 
-    #section5 .sns-list li {margin: 0 10px;}
 
-    #section6 .pdf-list li {width: 50%;}
 
 
 }
@@ -956,10 +954,7 @@ footer .contact-us span {
     #section4 ul li h4::after {left: 70px;}
     #section4 ul li p {padding-left: 35px; font-size: 1.1rem; line-height: 1.7;}
 
-    #section5 .sns-list {width: 84%; flex-wrap: wrap; justify-content: space-around}
-    #section5 .sns-list li:nth-child(5),#section5 .sns-list li:nth-child(6),#section5 .sns-list li:nth-child(7) {
-        margin-top: 30px;
-    }
+    #section5 .sns-list li {margin: 0 5px;}
     #section5 .sns-list li a {width: 30px; height: 30px; margin: 0 auto; background-color: #d6d6d6;}
     #section5 .sns-list li a::after {background-size: 44px auto;}
 
