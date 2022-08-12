@@ -68,18 +68,28 @@ header {
     transform: translateX(-50%);
 }
 
-#nav ul li a {
-    text-decoration: underline;
-    text-underline-offset: 6px;
+#nav ul li > span {
+    position: relative;
     font-family: 'Carbon-Regular', sans-serif;
     font-size: 3.2rem;
 }
-
-#nav ul li a:hover {
-    color: #d72a85;
+#nav ul li > span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
 }
 
-#nav ul li a:hover + .menu-bubble {
+#nav ul li span:hover {
+    color: #d72a85;
+}
+#nav ul li > span:hover::after {background-color: #d72a85}
+
+#nav ul li span:hover + .menu-bubble {
     display: block;
 }
 
@@ -786,17 +796,20 @@ footer .contact-us span {
         margin-left: 0;
     }
 
-    #nav ul li a {
+    #nav ul li span {
         display: block;
         padding: 16px 16px 17px;
         font-size: 3.3rem;
-        text-decoration: none;
         color: #dbdbdb !important;
     }
 
-    #nav ul li a:hover {
+    #nav ul li span::after {display: none;}
+
+    #nav ul li span:hover {
         background-color: #ed1fa5;
     }
+
+    #nav ul li span:hover + .menu-bubble {display: none;}
 
     #homePage #homeText1 {font-size: 1.8rem;}
 
